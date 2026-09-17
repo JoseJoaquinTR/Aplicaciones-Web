@@ -1,0 +1,373 @@
+/* ============================================
+   Nebula Music — Práctica 5 (Aplicaciones Web)
+   Tokens
+   ============================================ */
+:root{
+  --bg-deep:      #0a0b1a;
+  --bg-panel:     #12132a;
+  --bg-panel-2:   #171933;
+  --line:         rgba(237, 234, 246, 0.09);
+  --line-strong:  rgba(237, 234, 246, 0.18);
+
+  --magenta:  #d6449b;
+  --cyan:     #43c6e0;
+  --violet:   #7c5cff;
+
+  --text:        #edeaf6;
+  --text-muted:  #948fb8;
+  --text-faint:  #5f5a82;
+
+  --radius-panel: 22px;
+  --radius-field: 10px;
+
+  --font-display: "Unbounded", sans-serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+html,body{
+  margin: 0;
+  min-height: 100%;
+}
+
+body{
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   Fondo — nebulosa
+   ============================================ */
+.sky{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.blob{
+  position: absolute;
+  width: 46vw;
+  height: 46vw;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: drift 34s ease-in-out infinite;
+}
+
+.blob--magenta{
+  background: var(--magenta);
+  top: -12%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.blob--cyan{
+  background: var(--cyan);
+  bottom: -18%;
+  right: -8%;
+  animation-duration: 40s;
+  animation-delay: -8s;
+}
+
+.blob--violet{
+  background: var(--violet);
+  top: 30%;
+  left: 40%;
+  width: 34vw;
+  height: 34vw;
+  animation-duration: 46s;
+  animation-delay: -20s;
+}
+
+@keyframes drift{
+  0%,100%   { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(4%, 6%) scale(1.08); }
+}
+
+.stars{
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 15% 25%, rgba(237,234,246,0.55), transparent),
+    radial-gradient(1.5px 1.5px at 75% 15%, rgba(237,234,246,0.4), transparent),
+    radial-gradient(1px 1px at 40% 65%, rgba(237,234,246,0.5), transparent),
+    radial-gradient(1px 1px at 85% 70%, rgba(237,234,246,0.35), transparent),
+    radial-gradient(1.5px 1.5px at 25% 85%, rgba(237,234,246,0.4), transparent),
+    radial-gradient(1px 1px at 60% 40%, rgba(237,234,246,0.3), transparent);
+  background-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .blob{ animation: none; }
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.auth-container{
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 48px 20px;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+
+.brand__mark{
+  display: inline-block;
+  background: linear-gradient(135deg, var(--magenta), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.4rem;
+}
+
+/* ============================================
+   Tarjeta de autenticación
+   ============================================ */
+.auth-card{
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-2));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  padding: 30px 26px 28px;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  backdrop-filter: blur(20px);
+}
+
+.auth-card h1{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.auth-card__lead{
+  margin: 0 0 22px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.auth-card__switch{
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.auth-card__switch a{
+  color: var(--cyan);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-card__switch a:hover{
+  text-decoration: underline;
+}
+
+/* ============================================
+   Campos
+   ============================================ */
+.field{
+  margin-bottom: 16px;
+}
+
+.field label,
+.field legend{
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea{
+  width: 100%;
+  background: rgba(237,234,246,0.04);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-field);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color: var(--text-faint);
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline: none;
+  border-color: var(--cyan);
+  background: rgba(67, 198, 224, 0.06);
+}
+
+input:invalid:not(:placeholder-shown):not(:focus){
+  border-color: rgba(214, 68, 155, 0.55);
+}
+
+select{
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+                     linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+textarea{
+  resize: vertical;
+  min-height: 90px;
+}
+
+.hint{
+  display: block;
+  margin-top: 6px;
+  font-size: 0.76rem;
+  color: var(--text-faint);
+}
+
+/* Radios */
+.field--group{
+  border: none;
+  padding: 0;
+  margin: 0 0 18px;
+}
+
+.radio-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.radio input{
+  accent-color: var(--violet);
+}
+
+.radio:has(input:checked){
+  border-color: var(--violet);
+  color: var(--text);
+}
+
+/* Checkbox de términos */
+.check{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 4px 0 22px;
+  cursor: pointer;
+}
+
+.check input{
+  margin-top: 3px;
+  accent-color: var(--magenta);
+}
+
+/* ============================================
+   Botones
+   ============================================ */
+.actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn{
+  flex: 1;
+  appearance: none;
+  border: none;
+  border-radius: var(--radius-field);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 13px 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.btn:active{
+  transform: scale(0.98);
+}
+
+.btn--primary{
+  background: linear-gradient(120deg, var(--magenta), var(--violet));
+  color: #fff;
+}
+
+.btn--primary:hover{
+  opacity: 0.92;
+}
+
+.btn--ghost{
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--line-strong);
+}
+
+.btn--ghost:hover{
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px 28px;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 420px){
+  .auth-card{ padding: 26px 18px 24px; }
+}
