@@ -1,71 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NebulaMusic - Registro</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nebula Music - Registro</title>
-</head>
+        <div class="sky" aria-hidden="true">
+            <div class="blob blob--magenta"></div>
+            <div class="blob blob--cyan"></div>
+            <div class="blob blob--violet"></div>
+            <div class="stars"></div>
+        </div>
 
-<body>
+        <main class="auth-container">
 
-<main class="auth-container">
+            <div class="brand">
+                <span class="brand__mark">◐</span>
+                <span class="brand__name">Nebula Music</span>
+            </div>
 
-    <section class="auth-card">
+            <section class="auth-card">
+                <h1>Crear cuenta</h1>
+                <p class="auth-card__lead">Regístrate y empieza a explorar tu órbita musical.</p>
 
-        <form method="post" action="/crear-cuenta">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" minlength="3">
-            <br><br>
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo">
-            <br><br>
-            <label for="contrasenia">Contrasenia:</label>
-            <input type="password" id="contrasenia" name="contrasenia">
-            <br><br>
-            <label for="txt_pseudonimo">Pseudonimo:</label>
-            <input type="text" id="txt_pseudonimo" name="txt_pseudonimo" pattern="[a-zA-Z]{3,10}-[0-9]{2,10}">
-            <br><br>
-            <label>Genero:</label>
-            <br>
-            <input type="radio" id="masculino" name="rad_genero" value="M">
-            <label for="masculino">Masculino</label>
-            <input type="radio" id="femenino" name="rad_genero" value="F">
-            <label for="femenino">Femenino</label>
-            <input type="radio" id="otro" name="rad_genero" value="O">
-            <label for="otro">Otro</label>
-            <br><br>
-            <label for="suscripcion">Suscripción:</label>
-            <select id="suscripcion" name="sel_suscripcion">
-                <option value="gratis">Gratis</option>
-                <option value="mensual">Mensual</option>
-                <option value="anual">Anual</option>
-            </select>
-            <br><br>
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
-            <br><br>
-            <input type="checkbox" id="terminos" name="chk_terminos" value="aceptado">
-            <label for="terminos">Acepto los términos y condiciones</label>
-            <br><br>
-            <label for="comentarios">Comentarios:</label>
-            <br>
-            <textarea
-                    id="comentarios"
-                    name="comentarios"
-                    rows="4"
-                    cols="40"
-                    placeholder="Escribe aquí tus comentarios...">
-            </textarea>
-            <br><br>
-            <input type="submit" value="Registrar">
-            <input type="reset" value="Restablecer">
-        </form>
+                <form method="post" action="/crear-cuenta">
 
-    </section>
+                    <div class="field">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" minlength="3" placeholder="Tu nombre">
+                    </div>
 
-</main>
+                    <div class="field">
+                        <label for="correo">Correo</label>
+                        <input type="email" id="correo" name="correo" placeholder="tú@ejemplo.com" required>
+                    </div>
 
-</body>
+                    <div class="field">
+                        <label for="contrasenia">Contraseña</label>
+                        <input type="password" id="contrasenia" name="contrasenia" placeholder="••••••••" required>
+                    </div>
 
+                    <div class="field">
+                        <label for="txt_pseudonimo">Pseudónimo</label>
+                        <input type="text" id="txt_pseudonimo" name="txt_pseudonimo"
+                               pattern="[a-zA-Z]{3,10}-[0-9]{2,10}"
+                               title="Letras, un guion y números. Ejemplo: Nebula-123"
+                               placeholder="Nebula-123">
+                        <span class="hint">Letras, un guion y números. Ejemplo: Nebula-123</span>
+                    </div>
+
+                    <fieldset class="field field--group">
+                        <legend>Género</legend>
+                        <div class="radio-row">
+                            <label class="radio"><input type="radio" name="rad_genero" value="M"> Masculino</label>
+                            <label class="radio"><input type="radio" name="rad_genero" value="F"> Femenino</label>
+                            <label class="radio"><input type="radio" name="rad_genero" value="O"> Otro</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="field">
+                        <label for="suscripcion">Suscripción</label>
+                        <select id="suscripcion" name="sel_suscripcion">
+                            <option value="gratis">Gratis</option>
+                            <option value="mensual">Mensual</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="fechaNacimiento">Fecha de nacimiento</label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                    </div>
+
+                    <label class="check">
+                        <input type="checkbox" name="chk_terminos" value="aceptado">
+                        <span>Acepto los términos y condiciones</span>
+                    </label>
+
+                    <div class="field">
+                        <label for="comentarios">Comentarios</label>
+                        <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escribe aquí tus comentarios..."></textarea>
+                    </div>
+
+                    <div class="actions">
+                        <input type="submit" value="Registrar" class="btn btn--primary">
+                        <input type="reset" value="Restablecer" class="btn btn--ghost">
+                    </div>
+                </form>
+
+                <p class="auth-card__switch">¿Ya tienes cuenta? <a href="/iniciar-sesion">Inicia sesión</a></p>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>Copyright Nebula 2026</p>
+        </footer>
+    </body>
 </html>
