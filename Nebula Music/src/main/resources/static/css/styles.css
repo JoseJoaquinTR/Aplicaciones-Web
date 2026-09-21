@@ -1,7 +1,3 @@
-/* ============================================
-   Nebula Music — Práctica 5 (Aplicaciones Web)
-   Tokens
-   ============================================ */
 :root{
   --bg-deep:      #0a0b1a;
   --bg-panel:     #12132a;
@@ -39,9 +35,6 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-/* ============================================
-   Fondo — nebulosa
-   ============================================ */
 .sky{
   position: fixed;
   inset: 0;
@@ -106,9 +99,6 @@ body{
   .blob{ animation: none; }
 }
 
-/* ============================================
-   Layout
-   ============================================ */
 .auth-container{
   position: relative;
   z-index: 1;
@@ -140,9 +130,6 @@ body{
   font-size: 1.4rem;
 }
 
-/* ============================================
-   Tarjeta de autenticación
-   ============================================ */
 .auth-card{
   width: 100%;
   max-width: 420px;
@@ -184,9 +171,6 @@ body{
   text-decoration: underline;
 }
 
-/* ============================================
-   Campos
-   ============================================ */
 .field{
   margin-bottom: 16px;
 }
@@ -291,7 +275,6 @@ textarea{
   color: var(--text);
 }
 
-/* Checkbox de términos */
 .check{
   display: flex;
   align-items: flex-start;
@@ -307,9 +290,6 @@ textarea{
   accent-color: var(--magenta);
 }
 
-/* ============================================
-   Botones
-   ============================================ */
 .actions{
   display: flex;
   gap: 10px;
@@ -353,9 +333,6 @@ textarea{
   border-color: var(--text-muted);
 }
 
-/* ============================================
-   Footer
-   ============================================ */
 .site-footer{
   position: relative;
   z-index: 1;
@@ -365,9 +342,6 @@ textarea{
   font-size: 0.78rem;
 }
 
-/* ============================================
-   Responsive
-   ============================================ */
 @media (max-width: 420px){
   .auth-card{ padding: 26px 18px 24px; }
 }
