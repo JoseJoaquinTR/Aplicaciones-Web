@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NebulaMusic - Iniciar sesión</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/styles.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NebulaMusic - Iniciar sesión</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
 
-        <div class="sky" aria-hidden="true">
-            <div class="blob blob--magenta"></div>
-            <div class="blob blob--cyan"></div>
-            <div class="blob blob--violet"></div>
-            <div class="stars"></div>
-        </div>
+    <nav>
+        <a class="logo" href="/index">
+            <img src="/imgs/nebula-03.svg" alt="Logo de Nébula">
+        </a>
 
-        <main class="auth-container">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
 
-            <div class="brand">
-                <span class="brand__mark">◐</span>
-                <span class="brand__name">Nebula Music</span>
+        <ul>
+            <li><a href="/index">Inicio</a></li>
+            <li><a href="/iniciar-sesion">Iniciar sesión</a></li>
+            <li><a href="/registro">Registro</a></li>
+        </ul>
+    </nav>
+
+    <main class="auth-container">
+        <section class="auth-card">
+
+            <div class="form-logo">
+                <img src="/imgs/nebula-03.svg" alt="Logo de Nébula">
             </div>
 
-            <section class="auth-card">
-                <h1>Iniciar sesión</h1>
-                <p class="auth-card__lead">Tu órbita musical te está esperando.</p>
+            <div class="form-header">
+                <h3>Iniciar sesión</h3>
+                <p class="form-subtitle">Tu órbita musical te está esperando.</p>
+            </div>
 
-                <form method="post" action="/autenticacion" novalidate>
+            <form class="form" method="post" action="/autenticacion" novalidate>
 
-                    <div class="field">
-                        <label for="correo">Correo</label>
-                        <input type="email" id="correo" name="correo" placeholder="tú@ejemplo.com" required>
-                    </div>
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" placeholder="tú@ejemplo.com" required>
+                </div>
 
-                    <div class="field">
-                        <label for="contrasenia">Contraseña</label>
-                        <input type="password" id="contrasenia" name="contrasenia" placeholder="••••••••" required>
-                    </div>
+                <div class="form-group">
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" id="contrasenia" name="contrasenia" placeholder="••••••••" required>
+                </div>
 
-                    <div class="actions">
-                        <input type="submit" value="Iniciar" class="btn btn--primary">
-                        <input type="reset" value="Cancelar" class="btn btn--ghost">
-                    </div>
-                </form>
+                <button type="submit" class="btn-primary">Iniciar</button>
+                <button type="reset" class="btn-secondary">Cancelar</button>
+            </form>
 
-                <p class="auth-card__switch">¿No tienes cuenta? <a href="/registro">Regístrate</a></p>
-            </section>
+            <p class="form-switch">¿No tienes cuenta? <a href="/registro">Regístrate</a></p>
+        </section>
+    </main>
 
-        </main>
+    <footer>
+        <p>Copyright Nebula 2026</p>
+    </footer>
 
-        <footer class="site-footer">
-            <p>Copyright Nebula 2026</p>
-        </footer>
-    </body>
+</body>
 </html>
