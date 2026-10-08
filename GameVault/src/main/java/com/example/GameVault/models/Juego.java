@@ -4,11 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // Genera getters, setters, toString, etc. (gracias a Lombok)
+@Data // Genera getters, setters, toString, etc
 @NoArgsConstructor
 @AllArgsConstructor
-public class Juego {
+@Entity
+@Table(name="Juegos")
 
+public class Juego {
+    @id
+    @GeneratedValue(strategy)
     private Long id;
     private String titulo;
     private String descripcion;
