@@ -21,21 +21,46 @@ public class GameController {
     }
 
     @GetMapping({"/", "/juegos"})
-    public String listarJuegos(Model model) {
-        model.addAttribute("juegos", juegoService.listar());
+    public String listarJuegos(
+            @RequestParam(name = "buscar", required = false) String buscar,
+            Model model) {
+
+        if (buscar != null && !buscar.isEmpty()) {
+            model.addAttribute("juegos", juegoService.buscarPorTitulo(buscar));
+            model.addAttribute("busquedaActual", buscar);
+        } else {
+            model.addAttribute("juegos", juegoService.ObtenerTodos());
+        }
+
         return "juegos";
     }
 
     @GetMapping("/juegos/nuevo")
     public String mostrarFormulario() {
+        model.addAttribute("juego",new Juego());
         return "formulario";
     }
 
+    @GetMapping("/mis-juegos")
+    public String dashboard(Model model){
+        Usuario logueado = usuarioService.obtenerUsuarioLogeado();
+
+        model.addAtribute("juegos", juegoService.obtenerJuegosPorUsuario(logueado.getId));
+        model.addAtribute("usuario", logueado);
+        return "mis-juegos";
+    }
+
     @PostMapping("/juegos")
-    public String guardarJuego(@RequestParam("titulo") String titulo,
-                               @RequestParam("descripcion") String descripcion,
-                               @RequestParam("portada") MultipartFile portada) {
+    public String guardarJuego(
+            @RequestParam("titulo") String titulo,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("portada") MultipartFile portada,
+            @RequestParam("precio") double precio,
+            @RequestParam("titulo") String titulo
+    ) {
+        nuevoJuego.setTitulo(titulo)
+
         juegoService.guardar(titulo, descripcion, portada);
-        return "redirect:/juegos";
+        return "redirect:/mis-juegos";
     }
 }

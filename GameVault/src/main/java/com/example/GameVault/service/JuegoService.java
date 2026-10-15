@@ -51,4 +51,13 @@ public class JuegoService {
         Juego nuevoJuego = new Juego(null, titulo, descripcion, nombreArchivo);
         return juegoRepository.save(nuevoJuego);
     }
+    public Juego obtenerJuegoPorId(Long id){
+        return juegoRepository.findById(id).orElse(null);
+    }
+    public Juego eliminarJuego(Long id){
+        juegoRepository.deleteById(id);
+    }
+    public List<Juego> obtenerJuegosPorUsuarios(Long idUsuario){
+        return juegoRepository.findByUsuarioId(idUsuario);
+    }
 }
