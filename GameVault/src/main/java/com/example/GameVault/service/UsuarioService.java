@@ -1,6 +1,6 @@
 package com.example.GameVault.service;
 
-import com.example.GameVault.model.Usuario;
+import com.example.GameVault.models.Usuario;
 import com.example.GameVault.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public Usuario obtenerUsuarioLogeado(){
+    public Usuario obtenerUsuarioLogueado(){
         Optional<Usuario> usuarioOpt = usuarioRepository.findById(1L);
 
         if(usuarioOpt.isPresent()){

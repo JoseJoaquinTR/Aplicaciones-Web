@@ -9,6 +9,9 @@
   --accent: #00d1b2;
   --success: #3ddc97;
   --radius: 8px;
+  --border-color: var(--border);
+  --bg-surface: var(--panel);
+  --text-color: var(--text);
 }
 
 /* Reset*/
@@ -108,6 +111,16 @@ nav {
 
 .btn-primary:hover {
   opacity: 0.9;
+}
+
+.btn-secondary {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
 }
 
 /* Formularios*/

@@ -1,6 +1,6 @@
 package com.example.GameVault.repository;
 
-import com.example.GameVault.model.Usuario;
+import com.example.GameVault.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

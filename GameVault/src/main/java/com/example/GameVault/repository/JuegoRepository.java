@@ -7,5 +7,9 @@ import java.util.List;
 
 public interface JuegoRepository extends JpaRepository<Juego, Long> {
 
-    List<Juego> findByTituloContainingIgnoreCase(String titulo);
+    List<Juego> findByTitulo(String titulo);
+
+    List<Juego> findByTituloCategoria(String titulo, String categoria);
+
+    List<Juego> findByUsuarioId(Long idUsuario);
 }
