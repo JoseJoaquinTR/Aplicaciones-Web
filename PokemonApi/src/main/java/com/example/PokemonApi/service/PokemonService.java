@@ -1,11 +1,10 @@
 package com.example.PokemonApi.service;
 
+import com.example.PokemonApi.exception.ResourceNotFoundException;
 import com.example.PokemonApi.model.Pokemon;
 import com.example.PokemonApi.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class PokemonService {
 
 	public Pokemon obtenerPorId(Long id) {
 		return pokemonRepository.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No existe el Pokémon " + id));
+				.orElseThrow(() -> new ResourceNotFoundException("No existe el Pokémon con id " + id));
 	}
 
 	public Pokemon crear(Pokemon pokemon) {
@@ -38,6 +37,7 @@ public class PokemonService {
 		existente.setDefensa(nuevo.getDefensa());
 		existente.setDescripcion(nuevo.getDescripcion());
 		existente.setImagenUrl(nuevo.getImagenUrl());
+		existente.setFechaCaptura(nuevo.getFechaCaptura());
 		return pokemonRepository.save(existente);
 	}
 
@@ -64,6 +64,9 @@ public class PokemonService {
 		}
 		if (cambios.getImagenUrl() != null) {
 			existente.setImagenUrl(cambios.getImagenUrl());
+		}
+		if (cambios.getFechaCaptura() != null) {
+			existente.setFechaCaptura(cambios.getFechaCaptura());
 		}
 		return pokemonRepository.save(existente);
 	}

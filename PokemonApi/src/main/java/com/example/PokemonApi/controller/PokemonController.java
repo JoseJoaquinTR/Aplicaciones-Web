@@ -2,6 +2,7 @@ package com.example.PokemonApi.controller;
 
 import com.example.PokemonApi.model.Pokemon;
 import com.example.PokemonApi.service.PokemonService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,12 +36,12 @@ public class PokemonController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Pokemon> crear(@RequestBody Pokemon pokemon) {
+	public ResponseEntity<Pokemon> crear(@Valid @RequestBody Pokemon pokemon) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(pokemonService.crear(pokemon));
 	}
 
 	@PutMapping("/{id}")
-	public Pokemon actualizar(@PathVariable Long id, @RequestBody Pokemon pokemon) {
+	public Pokemon actualizar(@PathVariable Long id, @Valid @RequestBody Pokemon pokemon) {
 		return pokemonService.actualizar(id, pokemon);
 	}
 
