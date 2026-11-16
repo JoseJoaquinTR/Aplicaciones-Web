@@ -1,0 +1,7 @@
+$kind: http-request
+name: 3.4b GET /api/users/1 con token
+url: "{{base}}/api/users/1"
+method: GET
+headers:
+  Authorization: Bearer {{token}}
+order: 3000

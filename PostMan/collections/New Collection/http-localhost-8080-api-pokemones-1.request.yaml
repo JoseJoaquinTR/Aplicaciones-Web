@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:8080/api/pokemones
+description: ""
+url: http://localhost:8080/api/pokemones
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"nombre\": \"Pikachu\",\r
+
+    \  \"tipo\": \"Eléctrico\",\r
+
+    \  \"nivel\": 25,\r
+
+    \  \"ataque\": 55,\r
+
+    \  \"defensa\": 40,\r
+
+    \  \"descripcion\": \"Ratón eléctrico que guarda energía en sus mejillas.\",\r
+
+    \  \"imagenUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png\"\r
+
+    }"
+order: 2000

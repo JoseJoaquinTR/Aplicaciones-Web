@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/pokemones
+description: ""
+url: http://localhost:8080/api/pokemones
+method: GET
+order: 1000

@@ -1,0 +1,7 @@
+$kind: http-request
+name: 3.5 GET /api/posts/mine con token
+url: "{{base}}/api/posts/mine"
+method: GET
+headers:
+  Authorization: Bearer {{token}}
+order: 5000

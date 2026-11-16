@@ -1,0 +1,13 @@
+# Use this workspace to collaborate
+workspace:
+  id: 786c9b1e-0816-4445-8a4f-2f78d042c0fe
+
+cloudResources:
+  collections:
+    ../postman/collections/Practica 16 - JWT: a293d723-8ff6-4ea4-a82c-b29e8e8281d3
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

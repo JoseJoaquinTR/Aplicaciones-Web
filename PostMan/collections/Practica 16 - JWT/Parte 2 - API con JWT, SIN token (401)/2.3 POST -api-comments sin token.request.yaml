@@ -1,0 +1,15 @@
+$kind: http-request
+name: 2.3 POST /api/comments sin token
+url: "{{base}}/api/comments"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "text": "Comentario a nombre de otro",
+      "postId": 1,
+      "userId": 3
+    }
+order: 3000

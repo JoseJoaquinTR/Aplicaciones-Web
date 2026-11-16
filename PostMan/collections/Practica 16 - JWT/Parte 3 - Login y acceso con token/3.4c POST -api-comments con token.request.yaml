@@ -1,0 +1,16 @@
+$kind: http-request
+name: 3.4c POST /api/comments con token
+url: "{{base}}/api/comments"
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+body:
+  type: json
+  content: |-
+    {
+      "text": "Comentario a nombre de otro",
+      "postId": 1,
+      "userId": 3
+    }
+order: 4000

@@ -1,0 +1,15 @@
+$kind: http-request
+name: 1.1 POST /api/posts (userId ajeno)
+url: "{{base}}/api/posts"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Post falso",
+      "content": "Publicado a nombre de otro usuario",
+      "userId": 2
+    }
+order: 1000
